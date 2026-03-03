@@ -31,4 +31,5 @@ function toggleTask(index) {
   renderTasks();
 }
 
+
 renderTasks();
