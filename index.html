@@ -7,14 +7,30 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <h1>Weekly Report Tracker</h1>
 
-  <input type="text" id="taskInput" placeholder="Enter task...">
-  <button onclick="addTask()">Add</button>
+<h1>Weekly Report Tracker</h1>
 
-  <ul id="taskList"></ul>
+<select id="category">
+  <option value="Work">Work</option>
+  <option value="Personal">Personal</option>
+  <option value="Fitness">Fitness</option>
+</select>
 
-  <script src="script.js"></script>
+<input type="text" id="taskInput" placeholder="Enter task...">
+<button onclick="addTask()">Add</button>
+
+<div class="tabs">
+  <button onclick="showActive()">Active</button>
+  <button onclick="showCompleted()">Completed</button>
+</div>
+
+<ul id="taskList"></ul>
+
+<button onclick="sendWeeklyReport()">Send Weekly Email</button>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+<script src="script.js"></script>
+
 </body>
-
 </html>
