@@ -65,7 +65,23 @@ function showCompleted() {
 }
 
 function sendWeeklyReport() {
-  alert("Weekly email system will trigger via EmailJS setup.");
+  db.collection("tasks")
+    .where("done", "==", true)
+    .get()
+    .then(snapshot => {
+      let completedTasks = "";
+      snapshot.forEach(doc => {
+        completedTasks += "- " + doc.data().text + "\n";
+      });
+
+      emailjs.send("service_xuvj3fl", "template_tvzypob", {
+        tasks: completedTasks
+      });
+
+      alert("Weekly report sent!");
+    });
+}
 }
 
 loadTasks();
+
